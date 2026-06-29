@@ -74,15 +74,18 @@ const server = http.createServer((req, res) => {
         'authorization': `Bearer ${apiKey}`,
 
         'anthropic-version': '2023-06-01',
+        'anthropic-beta': 'claude-code-20250219,oauth-2025-04-20,fine-grained-tool-streaming-2025-05-14',
 
-        // Claude Code / Node.js SDK identity — what cc.freemodel.dev checks.
-        'user-agent':                  'claude-code/1.0.58',
+        // Exact Claude Code CLI identity — this is what cc.freemodel.dev checks.
+        'user-agent':                  'claude-cli/1.0.58 (external, cli)',
+        'x-app':                       'cli',
         'x-stainless-lang':            'js',
-        'x-stainless-package-version': '0.35.0',
+        'x-stainless-package-version': '0.55.1',
         'x-stainless-os':              'Windows',
         'x-stainless-arch':            'x64',
         'x-stainless-runtime':         'node',
         'x-stainless-runtime-version': 'v22.12.0',
+        'x-stainless-retry-count':     '0',
       },
     };
 
